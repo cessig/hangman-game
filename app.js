@@ -126,8 +126,16 @@ function startGame() {
   }
 }
 
-function sumbitGuess() {}
-
+function sumbitGuess() {
+  //  1. store value from input box in a varaible
+  //  2. check to make sure the value is one letter
+  //  3. If value is not one letter return "value is not one letter please try again"
+  //  4. If value is one letter check to see if it matches the matchedLetter array
+  //  4.1 If it does match make it appear on screen in the letterDisplay
+  //  5. If letter does not match the matchedLetter array
+  //  5.1 Make image of a hero appear on screen
+  //  5.2 Make maxGuesses go down one
+}
 // Display Length of word to the user
 
 //  if Right Guesses less then the length of the word
