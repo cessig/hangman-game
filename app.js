@@ -113,10 +113,10 @@ function startGame() {
     imageDisplayed: null,
   };
 
-  game.randomHero = superHeros[getRandomIntInclusive(0, superHeros.length - 1)];
+  game.randomHero = superHeros[getRandomIntInclusive(0, superHeros.length - 1)]; // Generates Random Hero
   console.log(game.randomHero);
-  game.matchedLetters = Array(game.randomHero.name.length).fill("_");
-  const parentElement = $("#letterDisplay");
+  game.matchedLetters = Array(game.randomHero.name.length).fill("_"); // makes a array of underscore length of the hero
+  const parentElement = $("#letterDisplay"); // playing with the dom
   for (let index = 0; index < game.matchedLetters.length; index++) {
     const matchedLetter = game.matchedLetters[index];
     const letterElement = document.createElement("span");
@@ -124,21 +124,25 @@ function startGame() {
 
     parentElement.append(letterElement);
   }
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"; // string of the alphabet
 
-  const alphabetArray = alphabet.split("");
+  const alphabetArray = alphabet.split(""); // turning the alphabet into an array
 
   alphabetArray.forEach((letter) => {
     parentElement.append(
-      `<button onClick="sumbitGuess("${letter}")">${letter}</button>`
+      `<button onClick="sumbitGuess('${letter}')">${letter}</button>`
     );
   });
 }
 
+// 4. check to see if it matches the the property of random hero in the array.
+
 function sumbitGuess(letter) {
-  for (let index = 0; index < game.randomHero.length; index++) {
-    const letterAtIndex = game.randomHero[index];
-    if (letterAtindex === letter) {
+  console.log(letter);
+  for (let index = 0; index < game.randomHero.name.length; index++) {
+    const letterAtIndex = game.randomHero.name[index];
+    console.log(letterAtIndex);
+    if (letterAtIndex === letter) {
       game.matchedLetters[index] = letter;
       for (let index = 0; index < game.matchedLetters.length; index++) {
         const matchedLetter = game.matchedLetters[index];
@@ -149,14 +153,13 @@ function sumbitGuess(letter) {
       }
     }
   }
-
-  //  4. check to see if it matches the randomHero string.
-
-  //  4.1 If it does match make it appear on screen in the letterDisplay
-  //  5. If letter does not match the matchedLetter array
-  //  5.1 Make image of a hero appear on screen
-  //  5.2 Make wrongGuesses to go up.
 }
+//
+
+//  4.1 If it does match make it appear on screen in the letterDisplay
+//  5. If letter does not match the matchedLetter array
+//  5.1 Make image of a hero appear on screen
+//  5.2 Make wrongGuesses to go up.
 
 // Display Length of word to the user
 
