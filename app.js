@@ -114,28 +114,50 @@ function startGame() {
   };
 
   game.randomHero = superHeros[getRandomIntInclusive(0, superHeros.length - 1)];
-
+  console.log(game.randomHero);
   game.matchedLetters = Array(game.randomHero.name.length).fill("_");
-
+  const parentElement = $("#letterDisplay");
   for (let index = 0; index < game.matchedLetters.length; index++) {
     const matchedLetter = game.matchedLetters[index];
     const letterElement = document.createElement("span");
     letterElement.innerHTML = matchedLetter;
-    const parentElement = $("#letterDisplay");
+
     parentElement.append(letterElement);
   }
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const alphabetArray = alphabet.split("");
+
+  alphabetArray.forEach((letter) => {
+    parentElement.append(
+      `<button onClick="sumbitGuess("${letter}")">${letter}</button>`
+    );
+  });
 }
 
-function sumbitGuess() {
-  //  1. store value from input box in a varaible
-  //  2. check to make sure the value is one letter
-  //  3. If value is not one letter return "value is not one letter please try again"
-  //  4. If value is one letter check to see if it matches the matchedLetter array
+function sumbitGuess(letter) {
+  for (let index = 0; index < game.randomHero.length; index++) {
+    const letterAtIndex = game.randomHero[index];
+    if (letterAtindex === letter) {
+      game.matchedLetters[index] = letter;
+      for (let index = 0; index < game.matchedLetters.length; index++) {
+        const matchedLetter = game.matchedLetters[index];
+        const letterElement = document.createElement("span");
+        letterElement.innerHTML = matchedLetter;
+
+        parentElement.append(letterElement);
+      }
+    }
+  }
+
+  //  4. check to see if it matches the randomHero string.
+
   //  4.1 If it does match make it appear on screen in the letterDisplay
   //  5. If letter does not match the matchedLetter array
   //  5.1 Make image of a hero appear on screen
-  //  5.2 Make maxGuesses go down one
+  //  5.2 Make wrongGuesses to go up.
 }
+
 // Display Length of word to the user
 
 //  if Right Guesses less then the length of the word
