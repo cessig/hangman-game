@@ -112,6 +112,7 @@ function startGame() {
     maxGuesses: null,
     incorrectGuesses: 5,
     imageDisplayed: null,
+    showHints: null,
   };
 
   game.randomHero = superHeros[getRandomIntInclusive(0, superHeros.length - 1)]; // Generates Random Hero
@@ -158,6 +159,10 @@ function sumbitGuess(letter) {
 
     guessedLetters.append(letterElement);
   }
+}
+game.showHints = game.randomHero.hint;
+function showHint() {
+  const showsHint = game;
 }
 //
 
