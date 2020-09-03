@@ -109,7 +109,7 @@ function startGame() {
     matchedLetters: [], // storage for letters of the word this game
     guessLetters: [],
     randomHero: null,
-    maxGuesses: 5,
+    maxGuesses: null,
     incorrectGuesses: 5,
     imageDisplayed: null,
   };
@@ -148,7 +148,7 @@ function sumbitGuess(letter) {
     console.log(letterAtIndex);
     if (letterAtIndex.toLowerCase() === letter) {
       game.matchedLetters[index] = letter;
-    }
+    } else game.incorrectGuesses - 1;
   }
   guessedLetters.empty();
   for (let index = 0; index < game.matchedLetters.length; index++) {
