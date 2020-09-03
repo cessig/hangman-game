@@ -110,6 +110,7 @@ function startGame() {
     guessLetters: [],
     randomHero: null,
     maxGuesses: 5,
+    incorrectGuesses: 5,
     imageDisplayed: null,
   };
 
@@ -117,12 +118,14 @@ function startGame() {
   console.log(game.randomHero);
   game.matchedLetters = Array(game.randomHero.name.length).fill("_"); // makes a array of underscore length of the hero
   const parentElement = $("#letterDisplay"); // playing with the dom
+  const guessedLetters = $("#guessedLetters");
   for (let index = 0; index < game.matchedLetters.length; index++) {
     const matchedLetter = game.matchedLetters[index];
     const letterElement = document.createElement("span");
     letterElement.innerHTML = matchedLetter;
+    letterElement.style.margin = "10px";
 
-    parentElement.append(letterElement);
+    guessedLetters.append(letterElement);
   }
   const alphabet = "abcdefghijklmnopqrstuvwxyz"; // string of the alphabet
 
@@ -139,19 +142,21 @@ function startGame() {
 
 function sumbitGuess(letter) {
   console.log(letter);
+  const guessedLetters = $("#guessedLetters");
   for (let index = 0; index < game.randomHero.name.length; index++) {
     const letterAtIndex = game.randomHero.name[index];
     console.log(letterAtIndex);
-    if (letterAtIndex === letter) {
+    if (letterAtIndex.toLowerCase() === letter) {
       game.matchedLetters[index] = letter;
-      for (let index = 0; index < game.matchedLetters.length; index++) {
-        const matchedLetter = game.matchedLetters[index];
-        const letterElement = document.createElement("span");
-        letterElement.innerHTML = matchedLetter;
-
-        parentElement.append(letterElement);
-      }
     }
+  }
+  guessedLetters.empty();
+  for (let index = 0; index < game.matchedLetters.length; index++) {
+    const matchedLetter = game.matchedLetters[index];
+    const letterElement = document.createElement("span");
+    letterElement.innerHTML = matchedLetter;
+
+    guessedLetters.append(letterElement);
   }
 }
 //
