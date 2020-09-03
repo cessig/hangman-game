@@ -122,11 +122,10 @@ function startGame() {
   const guessedLetters = $("#guessedLetters");
   for (let index = 0; index < game.matchedLetters.length; index++) {
     const matchedLetter = game.matchedLetters[index];
-    const letterElement = document.createElement("span");
-    letterElement.innerHTML = matchedLetter;
-    letterElement.style.margin = "10px";
 
-    guessedLetters.append(letterElement);
+    guessedLetters.append(
+      `<span class="letterDisplay">${matchedLetter}</span>`
+    );
   }
   const alphabet = "abcdefghijklmnopqrstuvwxyz"; // string of the alphabet
 
@@ -137,6 +136,7 @@ function startGame() {
       `<button onClick="sumbitGuess('${letter}')">${letter}</button>`
     );
   });
+  $("#hiddenButton").css("visibility", "visible");
 }
 
 // 4. check to see if it matches the the property of random hero in the array.
@@ -144,25 +144,38 @@ function startGame() {
 function sumbitGuess(letter) {
   console.log(letter);
   const guessedLetters = $("#guessedLetters");
+  let matchedLetterFlag = false;
   for (let index = 0; index < game.randomHero.name.length; index++) {
     const letterAtIndex = game.randomHero.name[index];
     console.log(letterAtIndex);
     if (letterAtIndex.toLowerCase() === letter) {
       game.matchedLetters[index] = letter;
-    } else game.incorrectGuesses = game.incorrectGuesses - 1;
+      matchedLetterFlag = true;
+    }
   }
+  if (matchedLetterFlag === false) {
+    game.incorrectGuesses = game.incorrectGuesses - 1;
+  }
+
   guessedLetters.empty();
   for (let index = 0; index < game.matchedLetters.length; index++) {
     const matchedLetter = game.matchedLetters[index];
-    const letterElement = document.createElement("span");
-    letterElement.innerHTML = matchedLetter;
-
-    guessedLetters.append(letterElement);
+    guessedLetters.append(
+      `<span class="letterDisplay">${matchedLetter}</span>`
+    );
+  }
+  if (game.incorrectGuesses === 0) {
+    alert("You have lost =(");
+  }
+  console.log(game.matchedLetters.join(""));
+  if (game.randomHero.name.toLowerCase() === game.matchedLetters.join("")) {
+    alert("You have won =)");
   }
 }
-game.showHints = game.randomHero.hint;
+
 function showHint() {
-  const showsHint = game;
+  const showsHint = game.randomHero.hint;
+  $("#hintText").html(showsHint);
 }
 //
 

@@ -45,9 +45,11 @@
       did not guess correctly a image of a comic book will appear. Once you
       guess the word you win! If you lose all your lives you die!
     </p>
-    <p>Display word here</p>
+    <p id="hintText"></p>
     <button onclick="startGame()">START</button>
-    <button onClick="showHint()">Hint!</button>
+    <button id="hiddenButton" style="visibility: hidden" onclick="showHint()">
+      Hint!
+    </button>
     <div id="letterDisplay">
       <div id="guessedLetters"></div>
     </div>
