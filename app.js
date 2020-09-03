@@ -148,7 +148,7 @@ function sumbitGuess(letter) {
     console.log(letterAtIndex);
     if (letterAtIndex.toLowerCase() === letter) {
       game.matchedLetters[index] = letter;
-    } else game.incorrectGuesses - 1;
+    } else game.incorrectGuesses = game.incorrectGuesses - 1;
   }
   guessedLetters.empty();
   for (let index = 0; index < game.matchedLetters.length; index++) {
