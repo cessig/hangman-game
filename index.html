@@ -37,19 +37,21 @@
       src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/6088/9781608873968.jpg"
       alt=""
     />
-
-    <h2>
-      Hangman SuperHero Edition
-      <img src="" alt="" />
-    </h2>
-
-    <p>
-      Instuctions <br />
-      This is a single player game. Click the button "start" to begin. You have
-      5 lives. If you guess a word correctly it will show up on screen. If you
-      did not guess correctly a image of a comic book will appear. Once you
-      guess the word you win! If you lose all your lives you die!
-    </p>
+    <div class="nes-container with-title is-centered">
+      <h2 class="title">
+        Hangman SuperHero Edition
+        <img src="" alt="" />
+      </h2>
+    </div>
+    <div class="nes-container is-rounded is-dark">
+      <p class="Instuctions">
+        Instructions <br />
+        This is a single player game. Click the button "start" to begin. You
+        have 5 lives. If you guess a word correctly it will show up on screen.
+        If you did not guess correctly a image of a comic book will appear. Once
+        you guess the word you win! If you lose all your lives you die!
+      </p>
+    </div>
     <p id="hintText"></p>
     <p id="displayLives" style="visibility: hidden">
       Lives Left: <span id="livesLeft"></span>
@@ -57,7 +59,12 @@
     <button id="startButton" onclick="startGame()" class="nes-btn is-primary">
       START
     </button>
-    <button id="hiddenButton" style="visibility: hidden" onclick="showHint()">
+    <button
+      id="hiddenButton"
+      style="visibility: hidden"
+      onclick="showHint()"
+      class="nes-btn is-success"
+    >
       Hint!
     </button>
     <div id="letterDisplay">
