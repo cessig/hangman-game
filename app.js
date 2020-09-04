@@ -105,11 +105,10 @@ function getRandomIntInclusive(min, max) {
 
 function startGame() {
   game = {
-    wrongGuesses: 0,
     matchedLetters: [], // storage for letters of the word this game
     guessLetters: [],
     randomHero: null,
-    maxGuesses: null,
+
     incorrectGuesses: 5,
     imageDisplayed: null,
     showHints: null,
@@ -133,10 +132,13 @@ function startGame() {
 
   alphabetArray.forEach((letter) => {
     parentElement.append(
-      `<button onClick="sumbitGuess('${letter}')">${letter}</button>`
+      `<button class="nes-btn is-error" onClick="sumbitGuess('${letter}')">${letter}</button>`
     );
   });
   $("#hiddenButton").css("visibility", "visible");
+  $("#displayLives").css("visibility", "visible");
+  $("#livesLeft").html(game.incorrectGuesses);
+  $("#startButton").css("visibility", "hidden");
 }
 
 // 4. check to see if it matches the the property of random hero in the array.
@@ -171,6 +173,7 @@ function sumbitGuess(letter) {
   if (game.randomHero.name.toLowerCase() === game.matchedLetters.join("")) {
     alert("You have won =)");
   }
+  $("#livesLeft").html(game.incorrectGuesses);
 }
 
 function showHint() {

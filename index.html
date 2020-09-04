@@ -9,6 +9,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="app.js"></script>
+    <link
+      href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,7 +51,12 @@
       guess the word you win! If you lose all your lives you die!
     </p>
     <p id="hintText"></p>
-    <button onclick="startGame()">START</button>
+    <p id="displayLives" style="visibility: hidden">
+      Lives Left: <span id="livesLeft"></span>
+    </p>
+    <button id="startButton" onclick="startGame()" class="nes-btn is-primary">
+      START
+    </button>
     <button id="hiddenButton" style="visibility: hidden" onclick="showHint()">
       Hint!
     </button>
