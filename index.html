@@ -20,23 +20,6 @@
     <title>Hangman!</title>
   </head>
   <body>
-    <img src="https://m.media-amazon.com/images/I/61J-VWXLpCL.jpg" alt="" />
-    <img
-      src="https://images-na.ssl-images-amazon.com/images/I/51mW2rdlfSL.jpg"
-      alt=""
-    />
-    <img
-      src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/MarvelComics1.jpg/220px-MarvelComics1.jpg"
-      alt=""
-    />
-    <img
-      src="https://images-na.ssl-images-amazon.com/images/I/61KFLylOgPL._SY445_QL70_ML2_.jpg"
-      alt=""
-    />
-    <img
-      src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/6088/9781608873968.jpg"
-      alt=""
-    />
     <div class="nes-container with-title is-centered">
       <h2 class="title">
         Hangman SuperHero Edition
@@ -53,9 +36,11 @@
       </p>
     </div>
     <p id="hintText"></p>
-    <p id="displayLives" style="visibility: hidden">
-      Lives Left: <span id="livesLeft"></span>
-    </p>
+    <div class="nes-container is-rounded is-dark">
+      <p id="displayLives" style="visibility: hidden">
+        Lives Left: <span id="livesLeft"></span>
+      </p>
+    </div>
     <button id="startButton" onclick="startGame()" class="nes-btn is-primary">
       START
     </button>

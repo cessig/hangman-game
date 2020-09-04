@@ -6,21 +6,34 @@ body {
   padding: 4em 1em;
   color: #555555;
   text-align: center;
-}
-
-pre {
-  background: #eee;
-}
-
-code {
-  padding: 2px 4px;
-  vertical-align: text-bottom;
-}
-
-pre {
-  padding: 1em;
+  background-image: url(https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+  background-size: cover;
 }
 
 .letterDisplay {
   margin: 10px;
+  color: ghostwhite;
+}
+
+#guessedLetters {
+  color: ghostwhite;
+}
+
+h2 {
+  color: #333333;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+#hintText {
+  color: ghostwhite;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+#livesLeft {
+  color: ghostwhite;
+}
+
+.displayLives {
+  color: ghostwhite;
 }

@@ -62,7 +62,7 @@ const superHeros = [
   },
   {
     name: "IncredibleHulk",
-    hint: "Don't wamt tp make this guy angry",
+    hint: "Don't want to make this guy angry",
   },
   {
     name: "DoctorStrange",
